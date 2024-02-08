@@ -66,3 +66,12 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Optional: If you also want to hide the scrollbar in Firefox */
+* {
+  scrollbar-width: none;
+}

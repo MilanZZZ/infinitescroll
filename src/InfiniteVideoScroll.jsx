@@ -8,7 +8,6 @@ const InfiniteVideoScroll = () => {
   const [page, setPage] = useState(1);
 
   useEffect(() => {
-    // Fetch initial videos
     fetchVideos();
   }, []);
 
@@ -30,18 +29,31 @@ const InfiniteVideoScroll = () => {
   };
 
   return (
+    <div className="container">
+
     <InfiniteScroll
       dataLength={videos.length}
       next={fetchVideos}
       hasMore={hasMore}
       loader={<h4>Loading...</h4>}
-    >
+      className="scroll-container"
+      
+      >
       {videos.map((video, index) => (
         <div key={index}>
-          <ReactPlayer url={video.url} controls />
+          <ReactPlayer
+            url={video.url}
+            controls
+            playing={true}
+            loop
+            muted={true}
+            width="auto"
+            height="100vh"
+            />
         </div>
       ))}
     </InfiniteScroll>
+      </div>
   );
 };
 
